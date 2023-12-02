@@ -8,7 +8,6 @@ public class AccountDemo {
         System.out.print("Введите сумму депозита: ");
         double amount = scanner.nextDouble();
         try {
-            System.out.println(amount);
             account.deposit(amount);
             System.out.println("Депозит успешно выполнен.");
         } catch (InsufficientFundsException e) {

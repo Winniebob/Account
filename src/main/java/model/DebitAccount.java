@@ -8,7 +8,7 @@ public class DebitAccount extends Account {
     @Override
     public void deposit(double amount) throws InsufficientFundsException {
         if (amount > 0)
-            balance -= amount;
+            balance += amount;
         else {
             throw new InsufficientFundsException("Депозит не может быть отрицательным");
         }

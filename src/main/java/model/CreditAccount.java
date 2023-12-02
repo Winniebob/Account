@@ -10,7 +10,7 @@ public class CreditAccount extends Account {
         if (amount <= balance) {
             balance -= amount;
         }
-        if (amount < 0) {
+        else if (amount < 0) {
             throw new InsufficientFundsException("Нельзя перевести отрицательное число");
         } else {
             throw new InsufficientFundsException("Недостаточно средств на счете");

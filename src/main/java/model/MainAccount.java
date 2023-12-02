@@ -14,7 +14,7 @@ public class MainAccount extends Account {
     @Override
     public void deposit(double amount) throws InsufficientFundsException {
         if (amount > 0)
-            balance -= amount;
+            balance += amount;
         else {
             throw new InsufficientFundsException("Депозит не может быть отрицательным");
         }
@@ -30,7 +30,7 @@ public class MainAccount extends Account {
         if (amount <= balance) {
             balance -= amount;
         }
-        if (amount < 0) {
+        else if (amount < 0) {
             throw new InsufficientFundsException("Нельзя снять отрицательное число");
         } else {
             throw new InsufficientFundsException("Недостаточно средств на счете");
