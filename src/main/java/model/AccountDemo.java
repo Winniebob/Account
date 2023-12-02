@@ -26,8 +26,10 @@ public class AccountDemo {
         }
     }
 
-    private static void checkBalance(Account account) {
+    private static void checkBalance(Account account, CreditAccount creditAccount, DebitAccount debitAccount) {
         System.out.println("Текущий баланс: " + account.getBalance());
+        System.out.println("Текущий баланс: " + creditAccount.getBalance());
+        System.out.println("Текущий баланс: " + debitAccount.getBalance());
     }
 
     private static void makeTransaction(Account sourceAccount, Account targetAccount, Scanner scanner) {
@@ -55,8 +57,8 @@ public class AccountDemo {
             System.out.println("Ошибка: " + e.getMessage());
             System.exit(1);
         }
-        CreditAccount creditAccount = new CreditAccount(initialBalance);
-        DebitAccount debitAccount = new DebitAccount(initialBalance);
+        CreditAccount creditAccount = new CreditAccount(0);
+        DebitAccount debitAccount = new DebitAccount(0);
 
         int choice = 0;
         while (choice != 5) {
@@ -77,7 +79,7 @@ public class AccountDemo {
                     withdraw(account, scanner);
                     break;
                 case 3:
-                    checkBalance(account);
+                    checkBalance(account, creditAccount, debitAccount);
                     break;
                 case 4:
                     System.out.println("\nВыберите счет отправителя:");
